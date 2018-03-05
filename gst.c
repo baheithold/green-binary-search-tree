@@ -85,3 +85,9 @@ int sizeGST(GST *t) {
     assert(t != 0);
     return sizeBST(t->store);
 }
+
+
+void freeGST(GST *t) {
+    freeBST(t->store);
+    free(t);
+}
