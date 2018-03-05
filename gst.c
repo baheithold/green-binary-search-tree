@@ -64,6 +64,7 @@ struct GST {
 
 GST *newGST(void (*d)(void *, FILE *), int (*c)(void *, void *), void (*f)(void *)) {
     GST *rv = malloc(sizeof(GST));
+    assert(rv != 0);
     rv->store = newBST(d, c, NULL, f);
     rv->display = d;
     rv->compare = c;
@@ -72,5 +73,6 @@ GST *newGST(void (*d)(void *, FILE *), int (*c)(void *, void *), void (*f)(void 
 
 
 int sizeGST(GST *t) {
+    assert(t != 0);
     return sizeBST(t->store);
 }
