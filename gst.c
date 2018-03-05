@@ -33,3 +33,15 @@ int frequencyGVAL(GVAL *v) {
     assert(v != 0);
     return v->frequency;
 }
+
+
+void incrementFrequencyGVAL(GVAL *v) {
+    assert(v != 0);
+    v->frequency++;
+}
+
+
+void deccrementFrequencyGVAL(GVAL *v) {
+    assert(v != 0);
+    v->frequency--;
+}
