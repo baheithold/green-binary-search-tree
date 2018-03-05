@@ -27,3 +27,8 @@ GVAL *newGVAL(void *key, void (*d)(void *, FILE *), void (*c)(void *, void *)) {
     rv->compare = c;
     return rv;
 }
+
+
+int frequencyGVAL(GVAL *v) {
+    return v->frequency;
+}
