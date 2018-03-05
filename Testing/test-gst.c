@@ -7,5 +7,6 @@
 
 int main(void) {
     GST *tree = newGST(displayINTEGER, compareINTEGER, freeINTEGER);
+    freeGST(tree);
     return 0;
 }

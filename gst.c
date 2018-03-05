@@ -21,13 +21,12 @@ typedef struct gval {
 } GVAL;
 
 
-GVAL *newGVAL(void *value, void (*d)(void *, FILE *), void (*c)(void *, void *), void (*f)(void *)) {
+GVAL *newGVAL(void *value, void (*d)(void *, FILE *), void (*c)(void *, void *)) {
     GVAL *rv = malloc(sizeof(GVAL));
     rv->value = value;
     rv->frequency = 0;
     rv->display = d;
     rv->compare = c;
-    rv->free = f;
     return rv;
 }
 
@@ -77,6 +76,7 @@ GST *newGST(void (*d)(void *, FILE *), int (*c)(void *, void *), void (*f)(void 
     rv->display = d;
     rv->compare = c;
     rv->free = f;
+    return rv;
 }
 
 
