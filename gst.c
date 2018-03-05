@@ -52,3 +52,20 @@ void deccrementFrequencyGVAL(GVAL *v) {
     assert(v != 0);
     v->frequency--;
 }
+
+
+struct GST {
+    BST *store;
+    void (*display)(void *, FILE *);
+    int (*compare)(void *, void *);
+    void (*free)(void *);
+};
+
+
+GST *newGST(void (*d)(void *, FILE *), int (*c)(void *, void *), void (*f)(void *)) {
+    GST *rv = malloc(sizeof(GST));
+    rv->store = newBST(d, c, NULL, f);
+    rv->display = d;
+    rv->compare = c;
+    rv->free = f;
+}
