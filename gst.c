@@ -6,26 +6,33 @@
 
 
 #include <stdio.h>
+#include <assert.h>
 #include <stdlib.h>
 #include "gst.h"
 #include "bst.h"
 
 
 typedef struct gval {
-    void *key;
+    void *value;
     int frequency;
     void (*display)(void *, FILE *);
     void (*compare)(void *, void *);
 } GVAL;
 
 
-GVAL *newGVAL(void *key, void (*d)(void *, FILE *), void (*c)(void *, void *)) {
+GVAL *newGVAL(void *value, void (*d)(void *, FILE *), void (*c)(void *, void *)) {
     GVAL *rv = malloc(sizeof(GVAL));
-    rv->key = key;
+    rv->value = value;
     rv->frequency = 0;
     rv->display = d;
     rv->compare = c;
     return rv;
+}
+
+
+void *getGVALvalue(GVAL *v) {
+    assert(v != 0);
+    return v->value;
 }
 
 
