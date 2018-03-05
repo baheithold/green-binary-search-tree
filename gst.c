@@ -17,15 +17,17 @@ typedef struct gval {
     int frequency;
     void (*display)(void *, FILE *);
     void (*compare)(void *, void *);
+    void (*free)(void *);
 } GVAL;
 
 
-GVAL *newGVAL(void *value, void (*d)(void *, FILE *), void (*c)(void *, void *)) {
+GVAL *newGVAL(void *value, void (*d)(void *, FILE *), void (*c)(void *, void *), void (*f)(void *)) {
     GVAL *rv = malloc(sizeof(GVAL));
     rv->value = value;
     rv->frequency = 0;
     rv->display = d;
     rv->compare = c;
+    rv->free = f;
     return rv;
 }
 
@@ -51,6 +53,12 @@ void incrementFrequencyGVAL(GVAL *v) {
 void deccrementFrequencyGVAL(GVAL *v) {
     assert(v != 0);
     v->frequency--;
+}
+
+
+void freeGVAL(GVAL *v) {
+    v->free(v->value);
+    free(v);
 }
 
 
