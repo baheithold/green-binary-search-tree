@@ -30,5 +30,6 @@ GVAL *newGVAL(void *key, void (*d)(void *, FILE *), void (*c)(void *, void *)) {
 
 
 int frequencyGVAL(GVAL *v) {
+    assert(v != 0);
     return v->frequency;
 }
