@@ -6,5 +6,6 @@
 #include "../string.h"
 
 int main(void) {
+    GST *tree = newGST(displayINTEGER, compareINTEGER, freeINTEGER);
     return 0;
 }

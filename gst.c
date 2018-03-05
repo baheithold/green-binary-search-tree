@@ -69,3 +69,8 @@ GST *newGST(void (*d)(void *, FILE *), int (*c)(void *, void *), void (*f)(void 
     rv->compare = c;
     rv->free = f;
 }
+
+
+int sizeGST(GST *t) {
+    return sizeBST(t->store);
+}
