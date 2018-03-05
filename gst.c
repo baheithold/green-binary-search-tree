@@ -23,6 +23,7 @@ typedef struct gval {
 
 GVAL *newGVAL(void *value, void (*d)(void *, FILE *), void (*c)(void *, void *), void (*f)(void *)) {
     GVAL *rv = malloc(sizeof(GVAL));
+    assert(rv != 0);
     rv->value = value;
     rv->frequency = 0;
     rv->display = d;
@@ -57,6 +58,7 @@ void deccrementFrequencyGVAL(GVAL *v) {
 
 
 void freeGVAL(void *v) {
+    assert(v != 0);
     ((GVAL *)v)->free(getGVALvalue((GVAL *) v));
     free((GVAL *) v);
 }
@@ -88,6 +90,7 @@ int sizeGST(GST *t) {
 
 
 void freeGST(GST *t) {
+    assert(t != 0);
     freeBST(t->store);
     free(t);
 }
