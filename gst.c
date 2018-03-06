@@ -63,7 +63,8 @@ void deccrementFrequencyGVAL(GVAL *v) {
 
 void displayGVAL(void *v, FILE *fp) {
     ((GVAL *) v)->display(getGVALvalue((GVAL *) v), fp);
-    fprintf(fp, "[%d]", frequencyGVAL((GVAL *) v));
+    int freq = frequencyGVAL((GVAL *) v);
+    if (freq > 1) fprintf(fp, "[%d]", freq);
 }
 
 
