@@ -497,6 +497,7 @@ void displayBSTdebug(BST *t, FILE *fp) {
  */
 void displayBSTdecorated(BST *t, FILE *fp) {
     // TODO: Am I correct?
+    // TODO: Am I efficient?
     assert(t != 0);
     if (t->root == NULL) return;
     QUEUE *q = newQUEUE(NULL, NULL);
@@ -525,6 +526,8 @@ void displayBSTdecorated(BST *t, FILE *fp) {
             if (t->isRoot(t, n)) {
                 fprintf(fp, "X");
             }
+            else if (t->isLeftChild(t, n)) fprintf(fp, "L");
+            else if (t->isRightChild(t, n)) fprintf(fp, "R");
             if (nodesAtLevel > 1) fprintf(fp, " ");
             if (n->left != NULL) enqueue(q, n->left);
             if (n->right != NULL) enqueue(q, n->right);
