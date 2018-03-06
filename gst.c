@@ -182,7 +182,6 @@ void *deleteGST(GST *t, void *v) {
         rv = deleteBST(t->store, temp);
     }
     t->size--;
-    freeGVAL(temp);
     return rv;
 }
 
