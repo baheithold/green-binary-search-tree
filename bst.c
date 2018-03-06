@@ -498,8 +498,31 @@ void displayBSTdebug(BST *t, FILE *fp) {
  *  Example Output: TODO
  */
 void displayBSTdecorated(BST *t, FILE *fp) {
-    // TODO: Implement me!
-    printf("TODO: Implement displayBSTdecorated!\n");
+    // TODO: Am I correct?
+    // TODO: Am I efficient?
+    assert(t != 0);
+    if (t->root == NULL) return;
+    QUEUE *q = newQUEUE(NULL, NULL);
+    BSTNODE *n = t->root;
+    enqueue(q, n);
+    int level = 0;
+    int nodesAtLevel = 0;
+    while (1) {
+        nodesAtLevel = sizeQUEUE(q);
+        if (nodesAtLevel == 0) break;
+        fprintf(fp, "%d: ", level);
+        while (nodesAtLevel > 0) {
+            n = dequeue(q);
+            t->display(getBSTNODEvalue(n), fp);
+            if (nodesAtLevel > 1) fprintf(fp, " ");
+            if (n->left != NULL) enqueue(q, n->left);
+            if (n->right != NULL) enqueue(q, n->right);
+            nodesAtLevel--;
+        }
+        fprintf(fp, "\n");
+        level++;
+    }
+    freeQUEUE(q);
 }
 
 
