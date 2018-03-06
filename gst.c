@@ -116,7 +116,23 @@ GST *newGST(void (*d)(void *, FILE *), int (*c)(void *, void *), void (*f)(void 
 int findGSTcount(GST *t, void *v) {
     GVAL *temp = newGVAL(v, NULL, t->compare, t->free);
     GVAL *vtemp = (GVAL *)findBST(t->store, temp);
+    freeGVAL(temp);
     return vtemp == NULL ? 0 : frequencyGVAL(vtemp);
+}
+
+
+/*
+ *  Method: findGST
+ *  Usage:  void *v = findGST(t, value);
+ *  Description: This method returns the searched-for value. If the value is
+ *  not in the tree, the method returns NULL.
+ */
+void *findGST(GST *t, void *v) {
+    assert(t != 0);
+    GVAL *temp = newGVAL(v, NULL, t->compare, t->free);
+    GVAL *rv = (GVAL *)findBST(t->store, temp);
+    freeGVAL(temp);
+    return rv;
 }
 
 
