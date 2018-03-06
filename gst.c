@@ -66,6 +66,7 @@ void freeGVAL(void *v) {
 
 struct GST {
     BST *store;
+    int size; // Do I like this name?
     void (*display)(void *, FILE *);
     int (*compare)(void *, void *);
     void (*free)(void *);
@@ -76,6 +77,7 @@ GST *newGST(void (*d)(void *, FILE *), int (*c)(void *, void *), void (*f)(void 
     GST *rv = malloc(sizeof(GST));
     assert(rv != 0);
     rv->store = newBST(d, c, NULL, freeGVAL);
+    rv->size = 0;
     rv->display = d;
     rv->compare = c;
     rv->free = f;
@@ -86,6 +88,12 @@ GST *newGST(void (*d)(void *, FILE *), int (*c)(void *, void *), void (*f)(void 
 int sizeGST(GST *t) {
     assert(t != 0);
     return sizeBST(t->store);
+}
+
+
+int duplicatesGST(GST *t) {
+    assert(t != 0);
+    return t->size - sizeBST(t->store);
 }
 
 
