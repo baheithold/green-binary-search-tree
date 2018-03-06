@@ -20,6 +20,8 @@ int main(void) {
     statisticsGST(tree, stdout);
     printf("Displaying decorated tree: \n");
     displayGST(tree, stdout);
+    printf("Displaying tree (debug): \n");
+    displayGSTdebug(tree, stdout);
     freeGST(tree);
     return 0;
 }

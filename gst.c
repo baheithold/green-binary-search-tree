@@ -204,10 +204,24 @@ void statisticsGST(GST *t, FILE *fp) {
  *  Usage:  displayGST(t, stdout);
  *  Description: This method displays a level order traversal of the tree
  *  using the displayBSTdecorated method of the underlying BST store.
+ *  Example Output:
  */
 void displayGST(GST *t, FILE *fp) {
     assert(t != 0);
     displayBSTdecorated(t->store, fp);
+}
+
+
+/*
+ *  Method: displayGSTdebug
+ *  Usage:  displayGSTdebug(t, stdout);
+ *  Description: This method simply calls the display method of the underlying
+ *  BST object.
+ *  Example Output:
+ */
+void displayGSTdebug(GST *t, FILE *fp) {
+    assert(t != 0);
+    displayBST(t->store, fp);
 }
 
 
