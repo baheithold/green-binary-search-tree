@@ -21,7 +21,11 @@ typedef struct gval {
 } GVAL;
 
 
-GVAL *newGVAL(void *value, void (*d)(void *, FILE *), int (*c)(void *, void *), void (*f)(void *)) {
+GVAL *newGVAL(
+        void *value,
+        void (*d)(void *, FILE *),
+        int (*c)(void *, void *),
+        void (*f)(void *)) {
     GVAL *rv = malloc(sizeof(GVAL));
     assert(rv != 0);
     rv->value = value;
@@ -58,8 +62,8 @@ void deccrementFrequencyGVAL(GVAL *v) {
 
 
 void displayGVAL(void *v, FILE *fp) {
-    fprintf(fp, "[%d]", frequencyGVAL((GVAL *) v));
     ((GVAL *) v)->display(getGVALvalue((GVAL *) v), fp);
+    fprintf(fp, "[%d]", frequencyGVAL((GVAL *) v));
 }
 
 
@@ -101,7 +105,18 @@ GST *newGST(void (*d)(void *, FILE *), int (*c)(void *, void *), void (*f)(void 
 }
 
 
+/*
+ *  Method: findGSTcount
+ *  Usage:  int count = findGSTcount(t, val);
+ *  Description: This method returns the frequency of a value in the GST. This
+ *  method calls the findBST method to find the value in the underlying BST. If
+ *  the findBST method returns NULL then a frequency of zero is returned to
+ *  the caller of this method.
+ */
 int findGSTcount(GST *t, void *v) {
+    GVAL *temp = newGVAL(v, NULL, t->compare, t->free);
+    GVAL *vtemp = (GVAL *)findBST(t->store, temp);
+    return vtemp == NULL ? 0 : frequencyGVAL(vtemp);
 }
 
 
