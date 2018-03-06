@@ -73,6 +73,11 @@ struct GST {
 };
 
 
+/*
+ *  Constructor: newGST
+ *  Usage:  GST *t = newGST(display, comparator, free);
+ *  Description: This method instantiates a new GST object.
+ */
 GST *newGST(void (*d)(void *, FILE *), int (*c)(void *, void *), void (*f)(void *)) {
     GST *rv = malloc(sizeof(GST));
     assert(rv != 0);
@@ -85,18 +90,39 @@ GST *newGST(void (*d)(void *, FILE *), int (*c)(void *, void *), void (*f)(void 
 }
 
 
+/*
+ *  Method: sizeGST
+ *  Usage:  int s = sizeGST(t);
+ *  Description: This method returns the number of nodes in the underlying BST
+ *  store by calling the sizeBST method.
+ */
 int sizeGST(GST *t) {
     assert(t != 0);
     return sizeBST(t->store);
 }
 
 
+/*
+ *  Method: duplicatesGST
+ *  Usage:  int nDuplicates = duplicatesGST(t);
+ *  Description: This method returns the number of duplicate values currently
+ *  in the tree. It runs in amortized constant time. The number of duplicates
+ *  is equal to the net number of GST insertions minus the number of nodes
+ *  in the underlying BST.
+ */
 int duplicatesGST(GST *t) {
     assert(t != 0);
     return t->size - sizeBST(t->store);
 }
 
 
+/*
+ *  Method: statisticsGST
+ *  Usage:  statisticsGST(t, stdout);
+ *  Description: This method displays the number of duplicates followed by a
+ *  call to the BST statistics method of the underlying BST store.
+ *  Example Output:
+ */
 void statisticsGST(GST *t, FILE *fp) {
     assert(t != 0);
     fprintf(fp, "Duplicates: %d\n", duplicatesGST(t));
@@ -104,6 +130,13 @@ void statisticsGST(GST *t, FILE *fp) {
 }
 
 
+/*
+ *  Method: freeGST
+ *  Usage:  freeGST(t);
+ *  Description: This method frees the GST by first freeing the underlying
+ *  BST store. The method then frees the GST object. This method runs in linear
+ *  time.
+ */
 void freeGST(GST *t) {
     assert(t != 0);
     freeBST(t->store);
