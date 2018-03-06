@@ -114,6 +114,7 @@ GST *newGST(void (*d)(void *, FILE *), int (*c)(void *, void *), void (*f)(void 
  *  the caller of this method.
  */
 int findGSTcount(GST *t, void *v) {
+    assert(t != 0);
     GVAL *temp = newGVAL(v, NULL, t->compare, t->free);
     GVAL *vtemp = (GVAL *)findBST(t->store, temp);
     freeGVAL(temp);
