@@ -97,6 +97,13 @@ int duplicatesGST(GST *t) {
 }
 
 
+void statisticsGST(GST *t, FILE *fp) {
+    assert(t != 0);
+    fprintf(fp, "Duplicates: %d\n", duplicatesGST(t));
+    statisticsBST(t->store, fp);
+}
+
+
 void freeGST(GST *t) {
     assert(t != 0);
     freeBST(t->store);
