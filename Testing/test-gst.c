@@ -20,8 +20,14 @@ int main(void) {
     statisticsGST(tree, stdout);
     printf("Displaying decorated tree: \n");
     displayGST(tree, stdout);
-    printf("Displaying tree (debug): \n");
-    displayGSTdebug(tree, stdout);
+    printf("DELETING 4...\n");
+    INTEGER *r = newINTEGER(4);
+    void *v = deleteGST(tree, r);
+    printf("Displaying decorated tree: \n");
+    displayGST(tree, stdout);
+    printf("Displaying statistics after removing 4: \n");
+    statisticsGST(tree, stdout);
+    freeINTEGER(r);
     freeGST(tree);
     return 0;
 }

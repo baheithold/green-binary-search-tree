@@ -55,7 +55,7 @@ void incrementFrequencyGVAL(GVAL *v) {
 }
 
 
-void deccrementFrequencyGVAL(GVAL *v) {
+void decrementFrequencyGVAL(GVAL *v) {
     assert(v != 0);
     v->frequency--;
 }
@@ -154,6 +154,34 @@ void *findGST(GST *t, void *v) {
     assert(t != 0);
     GVAL *temp = newGVAL(v, NULL, t->compare, t->free);
     GVAL *rv = (GVAL *)findBST(t->store, temp);
+    freeGVAL(temp);
+    return rv;
+}
+
+
+/*
+ *  Method: deleteGST
+ *  Usage:  void *rv = deleteGST(t, v);
+ *  Description:
+ */
+void *deleteGST(GST *t, void *v) {
+    void *rv = NULL;
+    GVAL *temp = newGVAL(v, NULL, t->compare, t->free);
+    BSTNODE *n = findBST(t->store, temp);
+    if (n == NULL) {
+        printf("Value ");
+        t->display(v, stdout);
+        printf(" not found.\n");
+        freeGVAL(temp);
+        return rv;
+    }
+    else if (frequencyGVAL(getBSTNODEvalue(n)) > 1) {
+        decrementFrequencyGVAL(getBSTNODEvalue(n));
+    }
+    else {
+        rv = deleteBST(t->store, temp);
+    }
+    t->size--;
     freeGVAL(temp);
     return rv;
 }
