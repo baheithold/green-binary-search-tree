@@ -205,6 +205,7 @@ void statisticsGST(GST *t, FILE *fp) {
  *  using the displayBSTdecorated method of the underlying BST store.
  */
 void displayGST(GST *t, FILE *fp) {
+    assert(t != 0);
     displayBSTdecorated(t->store, fp);
 }
 
