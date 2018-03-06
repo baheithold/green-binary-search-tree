@@ -199,6 +199,17 @@ void statisticsGST(GST *t, FILE *fp) {
 
 
 /*
+ *  Method: displayGST
+ *  Usage:  displayGST(t, stdout);
+ *  Description: This method displays a level order traversal of the tree
+ *  using the displayBSTdecorated method of the underlying BST store.
+ */
+void displayGST(GST *t, FILE *fp) {
+    displayBSTdecorated(t->store, fp);
+}
+
+
+/*
  *  Method: freeGST
  *  Usage:  freeGST(t);
  *  Description: This method frees the GST by first freeing the underlying

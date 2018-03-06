@@ -13,7 +13,10 @@ int main(void) {
     insertGST(tree, newINTEGER(9));
     insertGST(tree, newINTEGER(9));
     insertGST(tree, newINTEGER(9));
+    printf("Displaying statistics: \n");
     statisticsGST(tree, stdout);
+    printf("Displaying decorated tree: \n");
+    displayGST(tree, stdout);
     freeGST(tree);
     return 0;
 }

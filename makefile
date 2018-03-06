@@ -34,10 +34,10 @@ test-gst.o:	./Testing/test-gst.c gst.h bst.h queue.h integer.h real.h string.h
 
 test:	$(EXECUTABLES)
 		@echo Testing test-gst...
-		./test-gst
+		@./test-gst
 
 valgrind:	$(EXECUTABLES)
-		valgrind ./test-gst
+		@valgrind ./test-gst
 
 clean:
 		rm -f vgcore.* *.o $(EXECUTABLES)
