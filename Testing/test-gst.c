@@ -7,6 +7,7 @@
 
 int main(void) {
     GST *tree = newGST(displayINTEGER, compareINTEGER, freeINTEGER);
+    insertGST(tree, newINTEGER(1));
     insertGST(tree, newINTEGER(7));
     insertGST(tree, newINTEGER(7));
     insertGST(tree, newINTEGER(7));

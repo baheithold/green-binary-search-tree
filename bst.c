@@ -284,7 +284,6 @@ void setBSTsize(BST *t, int s) {
  *  Description: This method inserts a new value into a tree.
  */
 BSTNODE *insertBST(BST *t, void *value) {
-    // TODO: should i be recursive?
     assert(t != 0);
     BSTNODE *n = newBSTNODE(value);
     assert(n != 0);
@@ -448,7 +447,6 @@ void statisticsBST(BST *t, FILE *fp) {
  *  Example Output:
  */
 void displayBST(BST *t, FILE *fp) {
-    // FIXME
     fprintf(fp, "[");
     t->displayPreorder(t, t->root, fp);
     fprintf(fp, "]");
@@ -499,7 +497,6 @@ void displayBSTdebug(BST *t, FILE *fp) {
  */
 void displayBSTdecorated(BST *t, FILE *fp) {
     // TODO: Am I correct?
-    // TODO: Am I efficient?
     assert(t != 0);
     if (t->root == NULL) return;
     QUEUE *q = newQUEUE(NULL, NULL);
@@ -514,6 +511,12 @@ void displayBSTdecorated(BST *t, FILE *fp) {
         while (nodesAtLevel > 0) {
             n = dequeue(q);
             t->display(getBSTNODEvalue(n), fp);
+            if (t->isRoot(t, n)) {
+                fprintf(fp, "(");
+                t->display(getBSTNODEvalue(n), fp);
+                fprintf(fp, ")");
+                fprintf(fp, "X");
+            }
             if (nodesAtLevel > 1) fprintf(fp, " ");
             if (n->left != NULL) enqueue(q, n->left);
             if (n->right != NULL) enqueue(q, n->right);
