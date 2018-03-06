@@ -16,12 +16,12 @@ typedef struct gval {
     void *value;
     int frequency;
     void (*display)(void *, FILE *);
-    void (*compare)(void *, void *);
+    int (*compare)(void *, void *);
     void (*free)(void *);
 } GVAL;
 
 
-GVAL *newGVAL(void *value, void (*d)(void *, FILE *), void (*c)(void *, void *), void (*f)(void *)) {
+GVAL *newGVAL(void *value, void (*d)(void *, FILE *), int (*c)(void *, void *), void (*f)(void *)) {
     GVAL *rv = malloc(sizeof(GVAL));
     assert(rv != 0);
     rv->value = value;
@@ -57,6 +57,17 @@ void deccrementFrequencyGVAL(GVAL *v) {
 }
 
 
+void displayGVAL(void *v, FILE *fp) {
+    fprintf(fp, "[%d]", frequencyGVAL((GVAL *) v));
+    ((GVAL *) v)->display(getGVALvalue((GVAL *) v), fp);
+}
+
+
+int compareGVAL(void *v, void *w) {
+    return ((GVAL *)v)->compare(getGVALvalue(v), getGVALvalue(w));
+}
+
+
 void freeGVAL(void *v) {
     assert(v != 0);
     ((GVAL *)v)->free(getGVALvalue((GVAL *) v));
@@ -66,7 +77,7 @@ void freeGVAL(void *v) {
 
 struct GST {
     BST *store;
-    int size; // Do I like this name?
+    int size;
     void (*display)(void *, FILE *);
     int (*compare)(void *, void *);
     void (*free)(void *);
@@ -81,12 +92,16 @@ struct GST {
 GST *newGST(void (*d)(void *, FILE *), int (*c)(void *, void *), void (*f)(void *)) {
     GST *rv = malloc(sizeof(GST));
     assert(rv != 0);
-    rv->store = newBST(d, c, NULL, freeGVAL);
+    rv->store = newBST(displayGVAL, compareGVAL, NULL, freeGVAL);
     rv->size = 0;
     rv->display = d;
     rv->compare = c;
     rv->free = f;
     return rv;
+}
+
+
+int findGSTcount(GST *t, void *v) {
 }
 
 
