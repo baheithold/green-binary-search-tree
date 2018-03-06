@@ -106,6 +106,27 @@ GST *newGST(void (*d)(void *, FILE *), int (*c)(void *, void *), void (*f)(void 
 
 
 /*
+ *  Method: insertGST
+ *  Usage:  insertGST(t, value);
+ *  Description:
+ */
+void insertGST(GST *t, void *v) {
+    assert(t != 0);
+    GVAL *gv = newGVAL(v, t->display, t->compare, t->free);
+    BSTNODE *n = findBST(t->store, gv);
+    if (n == NULL) {
+        n = insertBST(t->store, gv);
+        incrementFrequencyGVAL(gv);
+    }
+    else {
+        incrementFrequencyGVAL(getBSTNODEvalue(n));
+        freeGVAL(gv);
+    }
+    t->size++;
+}
+
+
+/*
  *  Method: findGSTcount
  *  Usage:  int count = findGSTcount(t, val);
  *  Description: This method returns the frequency of a value in the GST. This
