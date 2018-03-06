@@ -7,13 +7,15 @@
 
 int main(void) {
     GST *tree = newGST(displayINTEGER, compareINTEGER, freeINTEGER);
-    insertGST(tree, newINTEGER(1));
     insertGST(tree, newINTEGER(7));
     insertGST(tree, newINTEGER(7));
+    insertGST(tree, newINTEGER(4));
+    insertGST(tree, newINTEGER(5));
     insertGST(tree, newINTEGER(7));
     insertGST(tree, newINTEGER(9));
     insertGST(tree, newINTEGER(9));
     insertGST(tree, newINTEGER(9));
+    insertGST(tree, newINTEGER(5));
     printf("Displaying statistics: \n");
     statisticsGST(tree, stdout);
     printf("Displaying decorated tree: \n");

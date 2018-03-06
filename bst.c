@@ -510,11 +510,19 @@ void displayBSTdecorated(BST *t, FILE *fp) {
         fprintf(fp, "%d: ", level);
         while (nodesAtLevel > 0) {
             n = dequeue(q);
+            if (n->isLeaf(n)) fprintf(fp, "=");
             t->display(getBSTNODEvalue(n), fp);
             if (t->isRoot(t, n)) {
                 fprintf(fp, "(");
                 t->display(getBSTNODEvalue(n), fp);
                 fprintf(fp, ")");
+            }
+            else {
+                fprintf(fp, "(");
+                t->display(getBSTNODEvalue(n->parent), fp);
+                fprintf(fp, ")");
+            }
+            if (t->isRoot(t, n)) {
                 fprintf(fp, "X");
             }
             if (nodesAtLevel > 1) fprintf(fp, " ");
