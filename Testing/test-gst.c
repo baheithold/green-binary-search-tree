@@ -8,26 +8,17 @@
 int main(void) {
     GST *tree = newGST(displayINTEGER, compareINTEGER, freeINTEGER);
     insertGST(tree, newINTEGER(7));
-    insertGST(tree, newINTEGER(7));
-    insertGST(tree, newINTEGER(4));
-    insertGST(tree, newINTEGER(5));
-    insertGST(tree, newINTEGER(7));
-    insertGST(tree, newINTEGER(9));
-    insertGST(tree, newINTEGER(9));
-    insertGST(tree, newINTEGER(9));
-    insertGST(tree, newINTEGER(5));
     printf("Displaying statistics: \n");
     statisticsGST(tree, stdout);
     printf("Displaying decorated tree: \n");
     displayGST(tree, stdout);
-    printf("DELETING 4...\n");
-    INTEGER *r = newINTEGER(4);
+    printf("DELETING 7...\n");
+    INTEGER *r = newINTEGER(7);
     void *v = deleteGST(tree, r);
     printf("Displaying decorated tree: \n");
     displayGST(tree, stdout);
     printf("Displaying statistics after removing 4: \n");
     statisticsGST(tree, stdout);
-    freeINTEGER(r);
     freeGST(tree);
     return 0;
 }

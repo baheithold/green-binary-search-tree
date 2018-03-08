@@ -153,7 +153,8 @@ int findGSTcount(GST *t, void *v) {
 void *findGST(GST *t, void *v) {
     assert(t != 0);
     GVAL *temp = newGVAL(v, NULL, t->compare, t->free);
-    GVAL *rv = (GVAL *)findBST(t->store, temp);
+    BSTNODE *n = findBST(t->store, temp);
+    GVAL *rv = n == NULL ? NULL : getBSTNODEvalue(n);
     freeGVAL(temp);
     return rv;
 }
@@ -169,19 +170,23 @@ void *deleteGST(GST *t, void *v) {
     GVAL *temp = newGVAL(v, NULL, t->compare, t->free);
     BSTNODE *n = findBST(t->store, temp);
     if (n == NULL) {
+        // Value NOT found
         printf("Value ");
         t->display(v, stdout);
         printf(" not found.\n");
-        freeGVAL(temp);
-        return rv;
     }
     else if (frequencyGVAL(getBSTNODEvalue(n)) > 1) {
+        // Value found, freq > 1 just decrement freq
         decrementFrequencyGVAL(getBSTNODEvalue(n));
+        rv = v;
     }
     else {
+        // Value found, freq == 1, delete from underlying BST
         rv = deleteBST(t->store, temp);
+        freeBSTNODE(n, t->free);
     }
     t->size--;
+    freeGVAL(temp);
     return rv;
 }
 
