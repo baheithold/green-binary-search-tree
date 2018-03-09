@@ -138,9 +138,9 @@ void insertGST(GST *t, void *v) {
 int findGSTcount(GST *t, void *v) {
     assert(t != 0);
     GVAL *temp = newGVAL(v, NULL, t->compare, t->free);
-    GVAL *vtemp = (GVAL *)findBST(t->store, temp);
+    BSTNODE *n = findBST(t->store, temp);
     freeGVAL(temp);
-    return vtemp == NULL ? 0 : frequencyGVAL(vtemp);
+    return n == NULL ? 0 : frequencyGVAL(getBSTNODEvalue(n));
 }
 
 
