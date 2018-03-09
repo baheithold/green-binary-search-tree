@@ -182,7 +182,7 @@ void *deleteGST(GST *t, void *v) {
     }
     else {
         // Value found, freq == 1, delete from underlying BST
-        rv = deleteBST(t->store, temp);
+        rv = getGVALvalue(getBSTNODEvalue(deleteBST(t->store, temp)));
         freeBSTNODE(n, t->free);
     }
     t->size--;

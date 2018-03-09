@@ -19,6 +19,7 @@ int main(void) {
     displayGST(tree, stdout);
     printf("Displaying statistics after removing 4: \n");
     statisticsGST(tree, stdout);
+    freeINTEGER(v);
     freeGST(tree);
     return 0;
 }
