@@ -243,12 +243,7 @@ void statisticsGST(GST *t, FILE *fp) {
  */
 void displayGST(GST *t, FILE *fp) {
     assert(t != 0);
-    if (t->size > 0) {
-        displayBSTdecorated(t->store, fp);
-    }
-    else {
-        fprintf(fp, "EMPTY\n");
-    }
+    displayBSTdecorated(t->store, fp);
 }
 
 
