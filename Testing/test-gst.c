@@ -6,20 +6,17 @@
 #include "../string.h"
 
 int main(void) {
-    GST *tree = newGST(displayINTEGER, compareINTEGER, freeINTEGER);
-    insertGST(tree, newINTEGER(7));
-    printf("Displaying statistics: \n");
-    statisticsGST(tree, stdout);
-    printf("Displaying decorated tree: \n");
+    GST *tree = newGST(displaySTRING, compareSTRING, freeSTRING);
+    insertGST(tree, newSTRING("c"));
+    insertGST(tree, newSTRING("z"));
+    insertGST(tree, newSTRING("k"));
+    insertGST(tree, newSTRING("d"));
+    insertGST(tree, newSTRING("f"));
+    insertGST(tree, newSTRING("j"));
+    insertGST(tree, newSTRING("d"));
+    STRING *tmp = newSTRING("d");
+    STRING *del = deleteGST(tree, tmp);
+    del = deleteGST(tree, tmp);
     displayGST(tree, stdout);
-    printf("DELETING 7...\n");
-    INTEGER *r = newINTEGER(7);
-    void *v = deleteGST(tree, r);
-    printf("Displaying decorated tree: \n");
-    displayGST(tree, stdout);
-    printf("Displaying statistics after removing 4: \n");
-    statisticsGST(tree, stdout);
-    freeINTEGER(v);
-    freeGST(tree);
     return 0;
 }
