@@ -257,7 +257,6 @@ void displayGST(GST *t, FILE *fp) {
 void displayGSTdebug(GST *t, FILE *fp) {
     assert(t != 0);
     displayBST(t->store, fp);
-    fprintf(fp, "\n");
 }
 
 

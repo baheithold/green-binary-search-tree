@@ -14,9 +14,6 @@ int main(void) {
     insertGST(tree, newSTRING("f"));
     insertGST(tree, newSTRING("j"));
     insertGST(tree, newSTRING("d"));
-    STRING *tmp = newSTRING("d");
-    STRING *del = deleteGST(tree, tmp);
-    del = deleteGST(tree, tmp);
     displayGST(tree, stdout);
     return 0;
 }

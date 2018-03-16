@@ -36,6 +36,7 @@
 *.x86_64
 *.hex
 test-gst
+gst-0-0
 
 # Debug files
 *.dSYM/
