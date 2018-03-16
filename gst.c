@@ -176,6 +176,7 @@ void *deleteGST(GST *t, void *v) {
         printf("Value ");
         t->display(v, stdout);
         printf(" not found\n");
+        return NULL;
     }
     else if (frequencyGVAL(getBSTNODEvalue(n)) > 1) {
         // Value found, freq > 1 just decrement freq
