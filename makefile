@@ -135,7 +135,7 @@ test:	$(EXECUTABLES)
 		@diff ./Testing/0/expected/gst-0-10.expected ./Testing/0/actual/gst-0-10.txt
 
 valgrind:	$(EXECUTABLES)
-		@valgrind ./gst-0-0
+		#@valgrind ./gst-0-0
 		@valgrind ./gst-0-1
 		@valgrind ./gst-0-2
 		@valgrind ./gst-0-3

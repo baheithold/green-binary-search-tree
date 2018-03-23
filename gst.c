@@ -173,9 +173,6 @@ void *deleteGST(GST *t, void *v) {
     BSTNODE *n = findBST(t->store, temp);
     if (n == NULL) {
         // Value NOT found
-        printf("Value ");
-        t->display(v, stdout);
-        printf(" not found\n");
         return NULL;
     }
     else if (frequencyGVAL(getBSTNODEvalue(n)) > 1) {
