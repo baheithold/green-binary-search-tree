@@ -115,7 +115,7 @@ GST *newGST(void (*d)(void *, FILE *), int (*c)(void *, void *), void (*f)(void 
  */
 void insertGST(GST *t, void *v) {
     assert(t != 0);
-    GVAL *gv = newGVAL(v, t->display, t->compare, t->free);
+    GVAL *gv = newGVAL(v, t->display, t->compare, 0);
     BSTNODE *n = findBST(t->store, gv);
     if (n == NULL) {
         n = insertBST(t->store, gv);
@@ -139,7 +139,7 @@ void insertGST(GST *t, void *v) {
  */
 int findGSTcount(GST *t, void *v) {
     assert(t != 0);
-    GVAL *temp = newGVAL(v, NULL, t->compare, t->free);
+    GVAL *temp = newGVAL(v, NULL, t->compare, 0);
     BSTNODE *n = findBST(t->store, temp);
     freeGVAL(temp);
     return n == NULL ? 0 : frequencyGVAL(getBSTNODEvalue(n));
@@ -157,7 +157,7 @@ void *findGST(GST *t, void *v) {
     GVAL *temp = newGVAL(v, NULL, t->compare, 0);
     BSTNODE *n = findBST(t->store, temp);
     freeGVAL(temp);
-    return (n == NULL) ? NULL : getBSTNODEvalue(n);
+    return n == NULL ? NULL : getBSTNODEvalue(n);
 }
 
 
@@ -183,7 +183,7 @@ void *deleteGST(GST *t, void *v) {
         // Value found, freq == 1, delete from underlying BST
         n = deleteBST(t->store, temp);
         rv = getGVALvalue(getBSTNODEvalue(n));
-        freeBSTNODE(n, 0);
+        freeBSTNODE(n, freeGVAL);
     }
     t->size--;
     freeGVAL(temp);
