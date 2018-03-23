@@ -101,38 +101,38 @@ gst-0-10.o: 	./Testing/0/gst-0-10.c gst.h bst.h queue.h integer.h real.h string.
 
 test:	$(EXECUTABLES)
 		@echo Testing gst-0-0...
-		@./gst-0-0 > ./Testing/actual/gst-0-0.txt
-		@diff ./Testing/expected/gst-0-0.expected ./Testing/actual/gst-0-0.txt
+		@./gst-0-0 > ./Testing/0/actual/gst-0-0.txt
+		@diff ./Testing/0/expected/gst-0-0.expected ./Testing/0/actual/gst-0-0.txt
 		@echo Testing gst-0-1...
-		@./gst-0-1 > ./Testing/actual/gst-0-1.txt
-		@diff ./Testing/expected/gst-0-1.expected ./Testing/actual/gst-0-1.txt
+		@./gst-0-1 > ./Testing/0/actual/gst-0-1.txt
+		@diff ./Testing/0/expected/gst-0-1.expected ./Testing/0/actual/gst-0-1.txt
 		@echo Testing gst-0-2...
-		@./gst-0-2 > ./Testing/actual/gst-0-2.txt
-		@diff ./Testing/expected/gst-0-2.expected ./Testing/actual/gst-0-2.txt
+		@./gst-0-2 > ./Testing/0/actual/gst-0-2.txt
+		@diff ./Testing/0/expected/gst-0-2.expected ./Testing/0/actual/gst-0-2.txt
 		@echo Testing gst-0-3...
-		@./gst-0-3 > ./Testing/actual/gst-0-3.txt
-		@diff ./Testing/expected/gst-0-3.expected ./Testing/actual/gst-0-3.txt
+		@./gst-0-3 > ./Testing/0/actual/gst-0-3.txt
+		@diff ./Testing/0/expected/gst-0-3.expected ./Testing/0/actual/gst-0-3.txt
 		@echo Testing gst-0-4...
-		@./gst-0-4 > ./Testing/actual/gst-0-4.txt
-		@diff ./Testing/expected/gst-0-4.expected ./Testing/actual/gst-0-4.txt
+		@./gst-0-4 > ./Testing/0/actual/gst-0-4.txt
+		@diff ./Testing/0/expected/gst-0-4.expected ./Testing/0/actual/gst-0-4.txt
 		@echo Testing gst-0-5...
-		@./gst-0-5 > ./Testing/actual/gst-0-5.txt
-		@diff ./Testing/expected/gst-0-5.expected ./Testing/actual/gst-0-5.txt
+		@./gst-0-5 > ./Testing/0/actual/gst-0-5.txt
+		@diff ./Testing/0/expected/gst-0-5.expected ./Testing/0/actual/gst-0-5.txt
 		@echo Testing gst-0-6...
-		@./gst-0-6 > ./Testing/actual/gst-0-6.txt
-		@diff ./Testing/expected/gst-0-6.expected ./Testing/actual/gst-0-6.txt
+		@./gst-0-6 > ./Testing/0/actual/gst-0-6.txt
+		@diff ./Testing/0/expected/gst-0-6.expected ./Testing/0/actual/gst-0-6.txt
 		@echo Testing gst-0-7...
-		@./gst-0-7 > ./Testing/actual/gst-0-7.txt
-		@diff ./Testing/expected/gst-0-7.expected ./Testing/actual/gst-0-7.txt
+		@./gst-0-7 > ./Testing/0/actual/gst-0-7.txt
+		@diff ./Testing/0/expected/gst-0-7.expected ./Testing/0/actual/gst-0-7.txt
 		@echo Testing gst-0-8...
-		@./gst-0-8 > ./Testing/actual/gst-0-8.txt
-		@diff ./Testing/expected/gst-0-8.expected ./Testing/actual/gst-0-8.txt
+		@./gst-0-8 > ./Testing/0/actual/gst-0-8.txt
+		@diff ./Testing/0/expected/gst-0-8.expected ./Testing/0/actual/gst-0-8.txt
 		@echo Testing gst-0-9...
-		@./gst-0-9 > ./Testing/actual/gst-0-9.txt
-		@diff ./Testing/expected/gst-0-9.expected ./Testing/actual/gst-0-9.txt
+		@./gst-0-9 > ./Testing/0/actual/gst-0-9.txt
+		@diff ./Testing/0/expected/gst-0-9.expected ./Testing/0/actual/gst-0-9.txt
 		@echo Testing gst-0-10...
-		@./gst-0-10 > ./Testing/actual/gst-0-10.txt
-		@diff ./Testing/expected/gst-0-10.expected ./Testing/actual/gst-0-10.txt
+		@./gst-0-10 > ./Testing/0/actual/gst-0-10.txt
+		@diff ./Testing/0/expected/gst-0-10.expected ./Testing/0/actual/gst-0-10.txt
 
 valgrind:	$(EXECUTABLES)
 		@valgrind ./gst-0-0
