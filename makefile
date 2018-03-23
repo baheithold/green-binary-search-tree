@@ -9,35 +9,38 @@ all:	$(EXECUTABLES)
 test-gst:	$(OBJS) test-gst.o
 		gcc $(LOPTS) $(OBJS) test-gst.o -o test-gst
 
-gst-0-0: 	$(OBJS)
+gst-0-0: 	$(OBJS) gst-0-0.o
 		gcc $(LOPTS) $(OBJS) gst-0-0.o -o gst-0-0
 
-gst-0-0: 	$(OBJS)
-		gcc $(LOPTS) $(OBJS) gst-0-0.o -o gst-0-0
+gst-0-1: 	$(OBJS) gst-0-1.o
+		gcc $(LOPTS) $(OBJS) gst-0-1.o -o gst-0-1
 
-gst-0-0: 	$(OBJS)
-		gcc $(LOPTS) $(OBJS) gst-0-0.o -o gst-0-0
+gst-0-2: 	$(OBJS) gst-0-2.o
+		gcc $(LOPTS) $(OBJS) gst-0-2.o -o gst-0-2
 
-gst-0-0: 	$(OBJS)
-		gcc $(LOPTS) $(OBJS) gst-0-0.o -o gst-0-0
+gst-0-3: 	$(OBJS) gst-0-3.o
+		gcc $(LOPTS) $(OBJS) gst-0-3.o -o gst-0-3
 
-gst-0-0: 	$(OBJS)
-		gcc $(LOPTS) $(OBJS) gst-0-0.o -o gst-0-0
+gst-0-4: 	$(OBJS) gst-0-4.o
+		gcc $(LOPTS) $(OBJS) gst-0-4.o -o gst-0-4
 
-gst-0-0: 	$(OBJS)
-		gcc $(LOPTS) $(OBJS) gst-0-0.o -o gst-0-0
+gst-0-5: 	$(OBJS) gst-0-5.o
+		gcc $(LOPTS) $(OBJS) gst-0-5.o -o gst-0-5
 
-gst-0-0: 	$(OBJS)
-		gcc $(LOPTS) $(OBJS) gst-0-0.o -o gst-0-0
+gst-0-6: 	$(OBJS) gst-0-6.o
+		gcc $(LOPTS) $(OBJS) gst-0-6.o -o gst-0-6
 
-gst-0-0: 	$(OBJS)
-		gcc $(LOPTS) $(OBJS) gst-0-0.o -o gst-0-0
+gst-0-7: 	$(OBJS) gst-0-7.o
+		gcc $(LOPTS) $(OBJS) gst-0-7.o -o gst-0-7
 
-gst-0-0: 	$(OBJS)
-		gcc $(LOPTS) $(OBJS) gst-0-0.o -o gst-0-0
+gst-0-8: 	$(OBJS) gst-0-8.o
+		gcc $(LOPTS) $(OBJS) gst-0-8.o -o gst-0-8
 
-gst-0-0: 	$(OBJS)
-		gcc $(LOPTS) $(OBJS) gst-0-0.o -o gst-0-0
+gst-0-9: 	$(OBJS) gst-0-9.o
+		gcc $(LOPTS) $(OBJS) gst-0-9.o -o gst-0-9
+
+gst-0-10: 	$(OBJS) gst-0-10.o
+		gcc $(LOPTS) $(OBJS) gst-0-10.o -o gst-0-10
 
 integer.o:	integer.c integer.h
 		gcc $(OOPTS) integer.c
@@ -63,67 +66,73 @@ gst.o:	gst.c gst.h bst.h
 test-gst.o:	./Testing/test-gst.c gst.h bst.h queue.h integer.h real.h string.h
 		gcc $(OOPTS) ./Testing/test-gst.c
 
-gst-0-0.o: 	./Testing/gst-0-0.c gst.h bst.h queue.h integer.h real.h string.h
-	 gcc $(OOPTS) ./Testing/gst-0-0.c
+gst-0-0.o: 	./Testing/0/gst-0-0.c gst.h bst.h queue.h integer.h real.h string.h
+	 gcc $(OOPTS) ./Testing/0/gst-0-0.c
 
-gst-0-0.o: 	./Testing/gst-0-0.c gst.h bst.h queue.h integer.h real.h string.h
-	 gcc $(OOPTS) ./Testing/gst-0-0.c
+gst-0-1.o: 	./Testing/0/gst-0-1.c gst.h bst.h queue.h integer.h real.h string.h
+	 gcc $(OOPTS) ./Testing/0/gst-0-1.c
 
-gst-0-0.o: 	./Testing/gst-0-0.c gst.h bst.h queue.h integer.h real.h string.h
-	 gcc $(OOPTS) ./Testing/gst-0-0.c
+gst-0-2.o: 	./Testing/0/gst-0-2.c gst.h bst.h queue.h integer.h real.h string.h
+	 gcc $(OOPTS) ./Testing/0/gst-0-2.c
 
-gst-0-0.o: 	./Testing/gst-0-0.c gst.h bst.h queue.h integer.h real.h string.h
-	 gcc $(OOPTS) ./Testing/gst-0-0.c
+gst-0-3.o: 	./Testing/0/gst-0-3.c gst.h bst.h queue.h integer.h real.h string.h
+	 gcc $(OOPTS) ./Testing/0/gst-0-3.c
 
-gst-0-0.o: 	./Testing/gst-0-0.c gst.h bst.h queue.h integer.h real.h string.h
-	 gcc $(OOPTS) ./Testing/gst-0-0.c
+gst-0-4.o: 	./Testing/0/gst-0-4.c gst.h bst.h queue.h integer.h real.h string.h
+	 gcc $(OOPTS) ./Testing/0/gst-0-4.c
 
-gst-0-0.o: 	./Testing/gst-0-0.c gst.h bst.h queue.h integer.h real.h string.h
-	 gcc $(OOPTS) ./Testing/gst-0-0.c
+gst-0-5.o: 	./Testing/0/gst-0-5.c gst.h bst.h queue.h integer.h real.h string.h
+	 gcc $(OOPTS) ./Testing/0/gst-0-5.c
 
-gst-0-0.o: 	./Testing/gst-0-0.c gst.h bst.h queue.h integer.h real.h string.h
-	 gcc $(OOPTS) ./Testing/gst-0-0.c
+gst-0-6.o: 	./Testing/0/gst-0-6.c gst.h bst.h queue.h integer.h real.h string.h
+	 gcc $(OOPTS) ./Testing/0/gst-0-6.c
 
-gst-0-0.o: 	./Testing/gst-0-0.c gst.h bst.h queue.h integer.h real.h string.h
-	 gcc $(OOPTS) ./Testing/gst-0-0.c
+gst-0-7.o: 	./Testing/0/gst-0-7.c gst.h bst.h queue.h integer.h real.h string.h
+	 gcc $(OOPTS) ./Testing/0/gst-0-7.c
 
-gst-0-0.o: 	./Testing/gst-0-0.c gst.h bst.h queue.h integer.h real.h string.h
-	 gcc $(OOPTS) ./Testing/gst-0-0.c
+gst-0-8.o: 	./Testing/0/gst-0-8.c gst.h bst.h queue.h integer.h real.h string.h
+	 gcc $(OOPTS) ./Testing/0/gst-0-8.c
 
-gst-0-0.o: 	./Testing/gst-0-0.c gst.h bst.h queue.h integer.h real.h string.h
-	 gcc $(OOPTS) ./Testing/gst-0-0.c
+gst-0-9.o: 	./Testing/0/gst-0-9.c gst.h bst.h queue.h integer.h real.h string.h
+	 gcc $(OOPTS) ./Testing/0/gst-0-9.c
+
+gst-0-10.o: 	./Testing/0/gst-0-10.c gst.h bst.h queue.h integer.h real.h string.h
+	 gcc $(OOPTS) ./Testing/0/gst-0-10.c
 
 test:	$(EXECUTABLES)
 		@echo Testing gst-0-0...
 		@./gst-0-0 > ./Testing/actual/gst-0-0.txt
 		@diff ./Testing/expected/gst-0-0.expected ./Testing/actual/gst-0-0.txt
-		@echo Testing gst-0-0...
-		@./gst-0-0 > ./Testing/actual/gst-0-0.txt
-		@diff ./Testing/expected/gst-0-0.expected ./Testing/actual/gst-0-0.txt
-		@echo Testing gst-0-0...
-		@./gst-0-0 > ./Testing/actual/gst-0-0.txt
-		@diff ./Testing/expected/gst-0-0.expected ./Testing/actual/gst-0-0.txt
-		@echo Testing gst-0-0...
-		@./gst-0-0 > ./Testing/actual/gst-0-0.txt
-		@diff ./Testing/expected/gst-0-0.expected ./Testing/actual/gst-0-0.txt
-		@echo Testing gst-0-0...
-		@./gst-0-0 > ./Testing/actual/gst-0-0.txt
-		@diff ./Testing/expected/gst-0-0.expected ./Testing/actual/gst-0-0.txt
-		@echo Testing gst-0-0...
-		@./gst-0-0 > ./Testing/actual/gst-0-0.txt
-		@diff ./Testing/expected/gst-0-0.expected ./Testing/actual/gst-0-0.txt
-		@echo Testing gst-0-0...
-		@./gst-0-0 > ./Testing/actual/gst-0-0.txt
-		@diff ./Testing/expected/gst-0-0.expected ./Testing/actual/gst-0-0.txt
-		@echo Testing gst-0-0...
-		@./gst-0-0 > ./Testing/actual/gst-0-0.txt
-		@diff ./Testing/expected/gst-0-0.expected ./Testing/actual/gst-0-0.txt
-		@echo Testing gst-0-0...
-		@./gst-0-0 > ./Testing/actual/gst-0-0.txt
-		@diff ./Testing/expected/gst-0-0.expected ./Testing/actual/gst-0-0.txt
-		@echo Testing gst-0-0...
-		@./gst-0-0 > ./Testing/actual/gst-0-0.txt
-		@diff ./Testing/expected/gst-0-0.expected ./Testing/actual/gst-0-0.txt
+		@echo Testing gst-0-1...
+		@./gst-0-1 > ./Testing/actual/gst-0-1.txt
+		@diff ./Testing/expected/gst-0-1.expected ./Testing/actual/gst-0-1.txt
+		@echo Testing gst-0-2...
+		@./gst-0-2 > ./Testing/actual/gst-0-2.txt
+		@diff ./Testing/expected/gst-0-2.expected ./Testing/actual/gst-0-2.txt
+		@echo Testing gst-0-3...
+		@./gst-0-3 > ./Testing/actual/gst-0-3.txt
+		@diff ./Testing/expected/gst-0-3.expected ./Testing/actual/gst-0-3.txt
+		@echo Testing gst-0-4...
+		@./gst-0-4 > ./Testing/actual/gst-0-4.txt
+		@diff ./Testing/expected/gst-0-4.expected ./Testing/actual/gst-0-4.txt
+		@echo Testing gst-0-5...
+		@./gst-0-5 > ./Testing/actual/gst-0-5.txt
+		@diff ./Testing/expected/gst-0-5.expected ./Testing/actual/gst-0-5.txt
+		@echo Testing gst-0-6...
+		@./gst-0-6 > ./Testing/actual/gst-0-6.txt
+		@diff ./Testing/expected/gst-0-6.expected ./Testing/actual/gst-0-6.txt
+		@echo Testing gst-0-7...
+		@./gst-0-7 > ./Testing/actual/gst-0-7.txt
+		@diff ./Testing/expected/gst-0-7.expected ./Testing/actual/gst-0-7.txt
+		@echo Testing gst-0-8...
+		@./gst-0-8 > ./Testing/actual/gst-0-8.txt
+		@diff ./Testing/expected/gst-0-8.expected ./Testing/actual/gst-0-8.txt
+		@echo Testing gst-0-9...
+		@./gst-0-9 > ./Testing/actual/gst-0-9.txt
+		@diff ./Testing/expected/gst-0-9.expected ./Testing/actual/gst-0-9.txt
+		@echo Testing gst-0-10...
+		@./gst-0-10 > ./Testing/actual/gst-0-10.txt
+		@diff ./Testing/expected/gst-0-10.expected ./Testing/actual/gst-0-10.txt
 
 valgrind:	$(EXECUTABLES)
 		@valgrind ./gst-0-0
