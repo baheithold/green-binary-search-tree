@@ -8,7 +8,7 @@ GST:
 0: 2(2)X
 1: =1(2)L
 debug: [2 [1]]
-is 3 present? no
+is 2 present? yes
 GST:
 0: =1(1)X
 debug: [1]
