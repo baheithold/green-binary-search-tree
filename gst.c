@@ -157,7 +157,7 @@ void *findGST(GST *t, void *v) {
     GVAL *temp = newGVAL(v, NULL, t->compare, 0);
     BSTNODE *n = findBST(t->store, temp);
     freeGVAL(temp);
-    return n == NULL ? NULL : getBSTNODEvalue(n);
+    return n == NULL ? NULL : getGVALvalue(getBSTNODEvalue(n));
 }
 
 
@@ -178,6 +178,7 @@ void *deleteGST(GST *t, void *v) {
     else if (frequencyGVAL(getBSTNODEvalue(n)) > 1) {
         // Value found, freq > 1 just decrement freq
         decrementFrequencyGVAL(getBSTNODEvalue(n));
+        rv = v;
     }
     else {
         // Value found, freq == 1, delete from underlying BST
